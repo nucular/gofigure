@@ -198,6 +198,11 @@ a:not(a.navbar-title, a.button):hover, a:not(a.navbar-title, a.button):active {
     -ms-user-select: none;
 }
 
+.navbar-button-group {
+    float: right;
+    margin: 6px;
+}
+
 /* Footer */
 
 .footer-container {

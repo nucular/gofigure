@@ -21,6 +21,9 @@
         var dailyActivity = [1000, 1200, 900, 850, 1000, 1100, 1300, 1200, 1150, 1200, 1050, 1000, 950, 1050];
         var maxDailyActivity = 1300;
         var minDailyActivity = 850;
+        var averageActivity = [40, 37, 39, 41, 42, 42, 43, 45, 44, 44, 40, 39, 40, 37, 39, 41, 42, 42, 43, 45, 44, 44, 40, 39];
+        var maxAverageActivity = 45;
+        var minAverageActivity = 37;
         </script>
     </head>
     <body>
@@ -31,7 +34,7 @@
         <![endif]-->
         <header class="navbar-container">
             <div class="wrapper clearfix">
-                <a href="index.html" class="navbar-title"><h1 class="title">#gofigure stats by jBot-42</h1></a>
+                <a href="index.html" class="navbar-title" style="margin-bottom: 7px;"><h1 class="title">#gofigure stats by jBot-42</h1></a>
             </div>
         </header>
         <main>
@@ -43,8 +46,25 @@
                         During the last 14 days, a total of 42 different nicks were seen on #gofigure.
                     </section>
                     <section>
-                        <h3>Daily Activity: Last 14 Days</h3>
+                        <h3>Activity: Last 14 Days</h3>
                         <canvas id="daily-activity-canvas"></canvas>
+                        <h3>Average Daily Activity: Last 14 Days</h3>
+                        <canvas id="average-activity-canvas"></canvas>
+                    </section>
+                    <section>
+                        <h3>Most Active Users</h3>
+                        <table class="data-table">
+                            <tbody>
+                                <tr>
+                                    <th>Nick</th>
+                                    <th>Number of lines</th>
+                                    <th>Avg. words per line</th>
+                                    <th>Avg. chars per line</th>
+                                    <th>Last seen</th>
+                                    <th>Random quote</th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
                 </article>
             </div>
