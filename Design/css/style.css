@@ -1,0 +1,414 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Custom Styles */
+
+/* Flexbox footer snapping */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Main Layout */
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.main aside {
+    padding: 0px 5% 10px;
+}
+
+/* Blackout */
+
+.blackout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+}
+
+.blackout-messagebox {
+    position: relative;
+    left: 0;
+    margin: auto;
+    top: 30%;
+    width: 85%;
+    background: #cdcdcd;
+    color: #000;
+    padding: 18px;
+}
+
+/* Text and Images */
+
+body {
+    font: 14px "Open Sans", Arial, sans-serif;
+    line-height: 22px;
+    -webkit-transition: all 900ms ease 100ms;
+    -moz-transition: all 900ms ease 100ms;
+    -o-transition: all 900ms ease 100ms;
+    transition: all 900ms ease 100ms;
+}
+
+h1 {
+    font-family: "Exo 2";
+    font-size: 2em;
+    font-weight: 400;
+}
+
+h2 {
+    font-family: "Exo 2";
+    font-size: 1.7em;
+    font-weight: 300;
+}
+
+h3 {
+    font-family: "Exo 2";
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: "Exo 2";
+    font-size: 1.15em;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+h5 {
+    font-family: "Exo 2";
+    font-size: 1.05em;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+h6 {
+    font-family: "Exo 2";
+    font-size: 1em;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+code, pre {
+    font-family: "Source Code Pro", "Lucida Console", monospace;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+img {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+hr {
+    width: 100%;
+    margin: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    border-top: 1px solid #E0E0E0;
+}
+
+/* Links and Buttons */
+
+a:not(a.navbar-title, a.button) {
+    display: inline-block;
+    color: #3491ff;
+    -webkit-transition: all 200ms ease 10ms;
+    -moz-transition: all 200ms ease 10ms;
+    -o-transition: all 200ms ease 10ms;
+    transition: all 200ms ease 10ms;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:not(a.navbar-title, a.button):hover, a:not(a.navbar-title, a.button):active {
+    color: #1e7ff2;
+}
+
+/* Navbar */
+
+.navbar-container {
+    width: 100%;
+    color: #ffffff;
+    background: #323B40;
+}
+
+.navbar-title {
+    margin-top: 6px;
+    color: #ffffff;
+    float: left;
+    text-decoration: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Footer */
+
+.footer-container {
+    width: 100%;
+    font-size: 0.93em;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 2em;
+    margin-top: 1em;
+}
+
+.footer-container-dark {
+    color: #ffffff;
+    background: #323B40;
+}
+
+.footer-container footer {
+    padding: 20px 0;
+}
+
+/* Messageboxes */
+
+.messagebox-large-borderless {
+    display: inline-block;
+    text-align: center;
+    line-height: 44px;
+    font-family: "Exo 2";
+    font-size: 2em;
+    font-weight: 300;
+    padding: 10px 10px;
+    margin: 10px;
+}
+
+/* Utility Styles */
+
+.indented {
+    margin-left: 2em;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+.fa-white {
+    color: #ffffff;
+}
+
+.fa-black {
+    color: #000000;
+}
+
+.fa-2-5x {
+    font-size: 2.5em;
+}
+
+/* Iframe for Embedded Projects */
+
+iframe {
+    overflow: hidden;
+}
+
+/* Documentation Tables */
+
+.data-table {
+    width: 100%;
+}
+
+.data-table, .data-table th, .data-table td {
+    padding: 5px 15px;
+}
+
+.data-table td {
+    border-top: 1px solid #e0e0e0;
+}
+
+.data-table th {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table {
+    font-family: "Exo 2";
+    font-size: 1.15em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 480px) {
+
+    .navbar-title {
+        display: inline-block;
+        width: 68%;
+        line-height: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+
+    .navbar-title {
+        float: left;
+    }
+}
+
+/* Helper */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/* Printing */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
