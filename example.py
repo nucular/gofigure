@@ -4,5 +4,5 @@ from gofigure.figures import MetaFigure
 from gofigure.figures.activity import ActivityFigure
 
 Generator(XChat("/path/to/logs/#channel.log"), [
-  MetaFigure(), ActivityFigure()
+    MetaFigure(), ActivityFigure()
 ]).run()
