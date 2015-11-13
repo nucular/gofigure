@@ -1,4 +1,4 @@
-from abc import ABCMeta
+import abc
 
 class Parser(object):
     """
@@ -6,13 +6,20 @@ class Parser(object):
     Abstract base class for subclasses that read in IRC logs from various file
     formats and directory structures and convert them to a list of sequences.
     """
-    __metaclass__ = ABCMeta
+    __metaclass__ = abc.ABCMeta
+
+    def __init__(self, root):
+        """
+        Initializes the Parser.
+        root: the root directory of your logs
+        """
+        pass
 
     def __getitem__(self, key):
         """
-        Returns a list of all IRC events between two datetime instances passed
-        using slicing. This is an expensive operation since it often involves
-        binary searching of multiple files.
+        Returns a generator of all IRC events between two datetime instances
+        passed using slicing. This is an expensive operation since it often
+        involves searching multiple files for time stamps.
         """
         pass
 

@@ -1,7 +1,7 @@
-from abc import ABCMeta
+import abc
 
 class Figure(object):
-    __metaclass__ = ABCMeta
-    
+    __metaclass__ = abc.ABCMeta
+
     def __init__(self):
         raise NotImplementedError()
