@@ -1,1 +1,1 @@
-raise NotImplementedError()
+pass

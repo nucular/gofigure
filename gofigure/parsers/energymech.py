@@ -1,6 +1,8 @@
+import os.path
 import datetime
 
 import gofigure.parsers
+import gofigure.events
 
 class EnergyMechParser(gofigure.parsers.Parser):
     """
@@ -10,7 +12,7 @@ class EnergyMechParser(gofigure.parsers.Parser):
     search for our start and end lines.
     """
 
-    def __init__(self, root, channel="", server="", filenames="%s_%c_%Y%m%d.log"):
+    def __init__(self, root, channel, server, filenames="%s_%c_%Y%m%d.log"):
         """
         Initializes the Parser.
         root: the root directory of your logs
@@ -22,16 +24,16 @@ class EnergyMechParser(gofigure.parsers.Parser):
         """
         self.root = root
         self.channel = channel
-        self.network = network
+        self.server = server
         self.filenames = filenames.replace("%s", server).replace("%c", channel)
 
     def parseTime(self, line):
         """Parse only the time of a line from a log file into a time instance."""
         timestr = line.split(" ", 1)[0][1:-1]
         if len(timestr) == 8:
-            return datetime.time.strptime(timestr, "%H:%M:%S")
+            return datetime.datetime.strptime(timestr, "%H:%M:%S").time()
         elif len(timestr) == 5:
-            return datetime.time.strptime(timestr, "%H:%M")
+            return datetime.datetime.strptime(timestr, "%H:%M").time()
         else:
             raise ValueError("Unknown time format: '{}'".format(timestr))
 
@@ -67,7 +69,7 @@ class EnergyMechParser(gofigure.parsers.Parser):
             nick, host, reason = splitpart[0], splitpart[1][1:-1], splitpart[2][1:-2]
             return gofigure.events.PartEvent(time, nick, host, reason)
         # [time] Quits: nick (host) (message)
-        elif splitspace[2] == "Quits:"
+        elif splitspace[2] == "Quits:":
             splitquit = line.split(" ", 5)[3:]
             nick, host, reason = splitquit[0], splitquit[1][1:-1], splitquit[2][1:-2]
             return gofigure.events.QuitEvent(time, nick, host, reason)
@@ -93,15 +95,22 @@ class EnergyMechParser(gofigure.parsers.Parser):
         Returns a generator of all IRC events between two datetime instances
         passed using slicing.
         """
-        date = datetime.date(key.start.year, key.start.month, key.start.day,
-            tzinfo=key.start.tzinfo)
-        while date <= key.end.date:
-            filename = datetime.strftime(date, self.filenames)
-            with open(filename, "rt") as f:
-                for line in f.readlines():
-                    time = self.parseTime(line).replace(tzinfo=date.tzinfo)
-                    if (date > key.start.date and date < key.end.date)
-                        or (date == key.start.date and time >= key.start.time)
-                        or (date == key.end.date and time <= key.end.time):
-                        yield self.parse(line)
-            date += datetime.timedelta(day=1)
+        date = datetime.date(key.start.year, key.start.month, key.start.day)
+        startdate = key.start.date()
+        starttime = key.start.time()
+        stopdate = key.stop.date()
+        stoptime = key.stop.time()
+        while date <= stopdate:
+            filename = datetime.datetime.strftime(date, self.filenames)
+            try:
+                with open(os.path.join(self.root, filename), "rt") as f:
+                    for line in f.readlines():
+                        time = self.parseTime(line).replace(tzinfo=key.start.tzinfo)
+                        if (date > startdate and date < stopdate) \
+                            or (date == startdate and time >= starttime) \
+                            or (date == stopdate and time <= stoptime):
+                            yield self.parse(line)
+            except IOError:
+                pass
+            finally:
+                date += datetime.timedelta(days=1)
