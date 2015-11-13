@@ -20,9 +20,9 @@ from gofigure.parsers.xchat import XChatParser
 from gofigure.figures import MetaFigure
 from gofigure.figures.activity import ActivityFigure
 
-Generator(XChat("/path/to/logs/#channel.log"), [
+Generator(XChatParser("/path/to/logs", "#channel", "WorkNet"), [
     MetaFigure(), ActivityFigure()
-]).run()
+]).go()
 ```
 
 ### Parsers
