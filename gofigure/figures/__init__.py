@@ -1,3 +1,3 @@
-class Component(object):
+class Figure(object):
     def __init__(self):
         raise NotImplementedError()

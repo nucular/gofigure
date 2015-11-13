@@ -1,6 +1,8 @@
 from gofigure.generator import Generator
-from gofigure.parsers.xchat import XChat
-from gofigure.components import Meta
-from gofigure.components.activity import ActivityGraph
+from gofigure.parsers.xchat import XChatParser
+from gofigure.figures import MetaFigure
+from gofigure.figures.activity import ActivityFigure
 
-Generator(XChat("/path/to/logs/#channel.log"), [Meta(), ActivityGraph()]).run()
+Generator(XChat("/path/to/logs/#channel.log"), [
+  MetaFigure(), ActivityFigure()
+]).run()
