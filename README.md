@@ -31,10 +31,12 @@ classes with a common, date-based sequential access interface that will get
 imported and instantiated by the generation script. Modules for the most common
 clients shall be provided.
 
+Supported log formats:
+* EnergyMech (ZNC)
+
 ### Figures
 These transform the sequence of processed IRC messages into actual statistics.
 *to be designed*
-
 
 The generated data is output as a chunk of JSON which will get loaded by
 the Angular.js client that composes the statistics page using directives
